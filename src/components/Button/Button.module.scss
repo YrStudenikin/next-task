@@ -1,0 +1,82 @@
+@use "@/styles/media.scss";
+
+.button {
+  $this: &;
+
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  background-color: var(--btn-bg);
+  color: var(--btn-color);
+  font-size: var(--btn-font-size-phone);
+  font-family: inherit;
+  padding: var(--btn-py-phone) var(--btn-px-phone);
+  border-radius: 3px;
+  border: none;
+
+  @include media.min-width(tablet) {
+    font-size: var(--btn-font-size-tablet);
+    padding: var(--btn-px-tablet) var(--btn-px-tablet);
+  }
+
+  &:not(#{$this}-disabled) {
+    cursor: pointer;
+  }
+
+  &:hover {
+    background-color: var(--btn-bg-hover);
+  }
+
+  &-dark {
+    --btn-bg: #212529;
+    --btn-bg-hover: #44494f;
+  }
+
+  &-success {
+    --btn-bg: #198754;
+    --btn-bg-hover: #086738;
+  }
+
+  &-danger {
+    --btn-bg: #dc3545;
+    --btn-bg-hover: #b91a2d;
+  }
+
+  &-block {
+    display: block;
+    width: 100%;
+  }
+
+  &-large {
+    --btn-py: 10px;
+    --btn-px: 20px;
+  }
+
+  &-link {
+    --btn-color: #1677ff;
+    --btn-bg: transparent;
+    --btn-bg-hover: transparent;
+
+    background-color: transparent;
+    outline: none;
+    display: inline-block;
+    font-weight: 400;
+    white-space: nowrap;
+    text-align: center;
+    background-image: none;
+    cursor: pointer;
+    user-select: none;
+    touch-action: manipulation;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &-disabled {
+    --btn-bg-hover: #81868c;
+
+    background-color: #81868c;
+    cursor: not-allowed;
+  }
+}

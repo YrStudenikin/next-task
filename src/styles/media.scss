@@ -1,0 +1,26 @@
+$breakpoint-phone: 320px;
+$breakpoint-tablet: 768px;
+$breakpoint-tablet-xl: 1024px;
+$breakpoint-pc: 1300px;
+
+@mixin min-width($breakpoint) {
+  @if ($breakpoint == phone) {
+    @media (min-width: $breakpoint-phone) {
+      @content;
+    }
+  } @else if ($breakpoint == tablet) {
+    @media (min-width: $breakpoint-tablet) {
+      @content;
+    }
+  } @else if ($breakpoint == tablet-xl) {
+    @media (min-width: $breakpoint-tablet-xl) {
+      @content;
+    }
+  } @else if ($breakpoint == pc) {
+    @media (min-width: $breakpoint-pc) {
+      @content;
+    }
+  } @else {
+    @error "UNKNOWN MEDIA BREAKPOINT #{$breakpoint}";
+  }
+}

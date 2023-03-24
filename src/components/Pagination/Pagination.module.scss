@@ -1,0 +1,71 @@
+@use "@/styles/media.scss";
+
+.pagination {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.input-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 40px 1fr 1fr;
+  width: 100px;
+
+  @include media.min-width(tablet) {
+    width: 200px;
+    grid-template-columns: 80px 1fr 1fr;
+  }
+}
+
+.input-field,
+.postfix {
+  padding: 4px 8px;
+  border: 1px solid #81868c;
+  line-height: 1.15;
+  font-size: 9px;
+  font-weight: 500;
+  border-radius: 0;
+
+  @include media.min-width(tablet) {
+    padding: 12px 20px;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+}
+
+.input-field {
+  position: relative;
+  display: block;
+  z-index: 1;
+  flex: 1 1 auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: inherit;
+  color: #000;
+  background: #fff;
+
+  &:focus {
+    outline: none;
+    border-color: #4096ff;
+    box-shadow: 0 0 0 2px rgba(5, 145, 255, 0.1);
+    border-inline-end-width: 1px;
+  }
+}
+
+.postfix {
+  margin-left: -1px;
+  text-align: center;
+  color: #000;
+  background: #d9d9d9;
+  border: 1px solid #81868c;
+}
+
+.submit-btn {
+  border-color: #81868c;
+  border-width: 1px;
+  border-style: solid;
+  outline: none;
+  border-left: none;
+  cursor: pointer;
+}
