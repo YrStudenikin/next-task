@@ -4,7 +4,7 @@ import styles from "@/styles/Home.module.scss";
 import Pagination from "@/components/Pagination";
 import { Product, ProductResponse } from "@/models";
 import { InferGetStaticPropsType } from "next";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
 const PAGE_SIZE = 6;
 
@@ -12,8 +12,6 @@ export default function Home({
   products,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const [currentPage, setCurrentPage] = useState<number>(1);
-
-  useEffect(() => console.log(currentPage), [currentPage]);
 
   const slicedProducts: Product[] = useMemo(() => {
     if (!products) return [];
@@ -29,7 +27,6 @@ export default function Home({
   );
 
   const handlePageChange = (page: number) => {
-    console.log(page);
     setCurrentPage(page);
   };
 
